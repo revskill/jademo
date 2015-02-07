@@ -1,0 +1,10 @@
+# https://www.youtube.com/playlist?list=PLVrBAaxUuHtyfvXunqkq53qWHk0n1-8Oy
+youtube-dl -x --audio-format mp3 --write-sub  --write-auto-sub --sub-lang en -o "%(id)s.%(ext)s" PL8FB14A2200B87185 --ignore-errors
+youtube-dl -j PL8FB14A2200B87185 > res-PL8FB14A2200B87185.json
+ruby preprocessor.rb
+ruby processor.rb
+
+(server) ruby dropbox_upload.rb
+ruby dropbox_getlinks.rb
+ruby filter.rb
+ruby export.rb
